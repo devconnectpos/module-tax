@@ -126,12 +126,12 @@ class TaxManagement extends ServiceAbstract
     {
         /** @var \Magento\Tax\Model\ResourceModel\TaxClass\Collection $collection */
         $collection = $this->taxClassCollectionFactory->create();
-        if (is_nan($searchCriteria->getData('currentPage'))) {
+        if (is_nan((float)$searchCriteria->getData('currentPage'))) {
             $collection->setCurPage(1);
         } else {
             $collection->setCurPage($searchCriteria->getData('currentPage'));
         }
-        if (is_nan($searchCriteria->getData('pageSize'))) {
+        if (is_nan((float)$searchCriteria->getData('pageSize'))) {
             $collection->setPageSize(
                 DataConfig::PAGE_SIZE_LOAD_CUSTOMER
             );
